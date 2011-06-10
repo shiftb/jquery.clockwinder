@@ -68,7 +68,7 @@
 
       if (day.length == 1) { day = '0' + day };
 
-      return [month, day, year].join('/') + ' at ' + time;
+      return [month, day, year].join('/') + ' ' + time;
     },
   
     time_ago_in_words:function(from) {
