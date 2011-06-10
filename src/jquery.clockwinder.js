@@ -19,6 +19,20 @@
   }
 
   $.clockwinder = {
+	months: {
+	        1: "Jan",
+	        2: "Feb",
+	        3: "Mar",
+	        4: "Apr",
+	        5: "May",
+	        6: "Jun",
+	        7: "Jul",
+	        8: "Aug",
+	        9: "Sep",
+	        10: "Oct",
+	        11: "Nov",
+	        12: "Dec",
+	},
     update:function(elements, options) {
       elements.each(function() {
         var newTime = $.clockwinder.compute($(this).attr(options.attr), options);
@@ -64,11 +78,11 @@
 
       var year = then.getFullYear();
       var month = then.getMonth() + 1;
-      var day = then.getDate() + '';
+      var day = then.getDate() + ',';
 
       if (day.length == 1) { day = '0' + day };
 
-      return [month, day, year].join('/') + ' ' + time;
+      return [$.clockwinder.months[month], day, year, time].join(' ');
     },
   
     time_ago_in_words:function(from) {
